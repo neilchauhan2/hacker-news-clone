@@ -17,6 +17,7 @@ function App() {
         <Router>
             <div className="App">
                 {/* Navbar--> */}
+                <div id="alert"></div>
                 <Switch>
                     <Route path="/news" component={News} />
                     <Route path="/trending" component={Trending} />
