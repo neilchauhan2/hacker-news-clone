@@ -19,7 +19,7 @@ function App() {
                 {/* Navbar--> */}
                 <div id="alertBox"></div>
                 <Switch>
-                    <Route path="/news" component={News} />{" "}
+                    <Route path="/" component={News} />{" "}
                     <Route path="/trending" component={Trending} />
                     <Route path="/submit" component={Submit} />
                     <Route path="/search" component={Search} />

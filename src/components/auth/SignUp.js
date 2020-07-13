@@ -37,6 +37,7 @@ const SignUp = (props) => {
                     <input
                         class="input"
                         name="name"
+                        value={values.name}
                         onChange={handleChange}
                         type="text"
                         placeholder="John Doe"
@@ -48,6 +49,7 @@ const SignUp = (props) => {
                 <div class="control">
                     <input
                         name="email"
+                        value={values.email}
                         onChange={handleChange}
                         class="input"
                         type="email"
@@ -60,6 +62,7 @@ const SignUp = (props) => {
                 <div class="control">
                     <input
                         name="password"
+                        value={values.password}
                         onChange={handleChange}
                         class="input"
                         type="password"
