@@ -17,9 +17,9 @@ function App() {
         <Router>
             <div className="App">
                 {/* Navbar--> */}
-                <div id="alert"></div>
+                <div id="alertBox"></div>
                 <Switch>
-                    <Route path="/news" component={News} />
+                    <Route path="/news" component={News} />{" "}
                     <Route path="/trending" component={Trending} />
                     <Route path="/submit" component={Submit} />
                     <Route path="/search" component={Search} />
@@ -28,7 +28,6 @@ function App() {
                     <Route path="/register" component={SignUp} />
                     <Route path="/forgot" component={Forgot} />
                     <Route path="/profile/edit" component={EditProfile} />
-                    <h1>hello World</h1>
                 </Switch>
             </div>
         </Router>

@@ -1,10 +1,12 @@
-export const Alert = (msg, status) => {
+const alert = (msg, status) => {
     const div = document.createElement("div");
     div.className = `notification is-${status} `;
     div.appendChild(document.createTextNode(msg));
-    const container = document.getElementById("search-section-container");
-    container.insertBefore(div, document.getElementById("alert"));
+    const container = document.getElementById("alertBox");
+    container.appendChild(div);
     setTimeout(() => {
         container.removeChild(div);
     }, 3000);
 };
+
+export default alert;
