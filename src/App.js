@@ -11,6 +11,7 @@ import EditProfile from "./components/auth/EditProfile";
 import Forgot from "./components/auth/Forgot";
 import useAuth from "./hooks/useAuth";
 import UserContext from "./context/UserContext";
+import Navbar from "./components/layout/Navbar";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.css";
 
@@ -21,10 +22,10 @@ function App() {
         <Router>
             <UserContext.Provider value={{ user, setUser }}>
                 <div className="App">
-                    {/* Navbar--> */}
+                    <Navbar />
                     <div id="alertBox"></div>
                     <Switch>
-                        <Route path="/" component={News} />{" "}
+                        <Route exact path="/" component={News} />{" "}
                         <Route path="/trending" component={Trending} />
                         <Route path="/submit" component={Submit} />
                         <Route path="/search" component={Search} />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import alert from "../components/helpers/alert";
 
 const useForm = (initState, validate, action) => {
@@ -25,7 +25,6 @@ const useForm = (initState, validate, action) => {
             ...values,
             [e.target.name]: e.target.value
         });
-        console.log(values);
     };
 
     const handleSubmit = () => {

@@ -5,14 +5,14 @@ import firebase from "../../firebase";
 import alert from "../helpers/alert";
 import validateLogin from "../../validators/validateLogin";
 
-const Login = () => {
+const Login = (props) => {
     const INITIAL_STATE = {
         name: "",
         email: "",
         password: ""
     };
 
-    const authenticateUser = async (props) => {
+    const authenticateUser = async () => {
         const { email, password } = values;
         try {
             await firebase.login(email, password);
