@@ -26,14 +26,18 @@ function App() {
                     <div id="alertBox"></div>
                     <Switch>
                         <Route exact path="/" component={News} />{" "}
-                        <Route path="/trending" component={Trending} />
-                        <Route path="/submit" component={Submit} />
-                        <Route path="/search" component={Search} />
-                        <Route path="/profile" component={Profile} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/register" component={SignUp} />
-                        <Route path="/forgot" component={Forgot} />
-                        <Route path="/profile/edit" component={EditProfile} />
+                        <Route exact path="/trending" component={Trending} />
+                        <Route exact path="/submit" component={Submit} />
+                        <Route exact path="/search" component={Search} />
+                        <Route exact path="/profile" component={Profile} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={SignUp} />
+                        <Route exact path="/forgot" component={Forgot} />
+                        <Route
+                            exact
+                            path="/profile/edit"
+                            component={EditProfile}
+                        />
                     </Switch>
                 </div>
             </UserContext.Provider>
