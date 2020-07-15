@@ -36,7 +36,9 @@ function App() {
                         <Route
                             exact
                             path="/profile/edit"
-                            component={EditProfile}
+                            component={() => (
+                                <EditProfile user={user} setUser={setUser} />
+                            )}
                         />
                     </Switch>
                 </div>

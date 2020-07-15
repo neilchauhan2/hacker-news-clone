@@ -18,6 +18,7 @@ const useForm = (initState, validate, action) => {
                 setIsSubmitting(false);
             }
         }
+        // eslint-disable-next-line
     }, [errors]);
 
     const handleChange = (e) => {

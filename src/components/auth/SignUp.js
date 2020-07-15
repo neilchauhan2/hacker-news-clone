@@ -23,7 +23,7 @@ const SignUp = (props) => {
         }
     };
 
-    const { handleSubmit, handleChange, values, isSubmitting } = useForm(
+    const { handleSubmit, handleChange, values } = useForm(
         INITIAL_STATE,
         validateSignup,
         authenticateUser

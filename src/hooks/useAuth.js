@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import firebase from "../firebase";
-import { auth } from "firebase";
 
 const useAuth = () => {
     const [authUser, setAuthUser] = useState(null);

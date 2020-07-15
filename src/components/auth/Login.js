@@ -24,7 +24,7 @@ const Login = (props) => {
         }
     };
 
-    const { handleSubmit, handleChange, values, isSubmitting } = useForm(
+    const { handleSubmit, handleChange, values } = useForm(
         INITIAL_STATE,
         validateLogin,
         authenticateUser
@@ -32,27 +32,27 @@ const Login = (props) => {
 
     return (
         <div className="container login">
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
+            <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
                     <input
                         name="email"
                         value={values.email}
                         onChange={handleChange}
-                        class="input"
+                        className="input"
                         type="email"
                         placeholder="abc@example.com"
                     />
                 </div>
             </div>
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
+            <div className="field">
+                <label className="label">Password</label>
+                <div className="control">
                     <input
                         name="password"
                         value={values.password}
                         onChange={handleChange}
-                        class="input"
+                        className="input"
                         type="password"
                         placeholder="Password"
                     />

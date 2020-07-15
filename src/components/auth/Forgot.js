@@ -20,7 +20,7 @@ const Forgot = () => {
         }
     };
 
-    const { handleSubmit, handleChange, values, isSubmitting } = useForm(
+    const { handleSubmit, handleChange, values } = useForm(
         INITIAL_STATE,
         validatePasswordReset,
         handlePasswordReset
