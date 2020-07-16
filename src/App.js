@@ -27,7 +27,11 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={News} />{" "}
                         <Route exact path="/trending" component={Trending} />
-                        <Route exact path="/submit" component={Submit} />
+                        <Route
+                            exact
+                            path="/submit"
+                            component={() => <Submit user={user} />}
+                        />
                         <Route exact path="/search" component={Search} />
                         <Route exact path="/profile" component={Profile} />
                         <Route exact path="/login" component={Login} />
