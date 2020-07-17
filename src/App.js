@@ -15,7 +15,7 @@ import Navbar from "./components/layout/Navbar";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.css";
 
-function App() {
+const App = () => {
     const [user, setUser] = useAuth();
 
     return (
@@ -49,6 +49,6 @@ function App() {
             </UserContext.Provider>
         </Router>
     );
-}
+};
 
 export default App;
