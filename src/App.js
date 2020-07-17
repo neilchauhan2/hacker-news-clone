@@ -12,6 +12,7 @@ import Forgot from "./components/auth/Forgot";
 import useAuth from "./hooks/useAuth";
 import UserContext from "./context/UserContext";
 import Navbar from "./components/layout/Navbar";
+import Link from "./components/pages/Link";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.css";
 
@@ -37,6 +38,11 @@ const App = () => {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/register" component={SignUp} />
                         <Route exact path="/forgot" component={Forgot} />
+                        <Route
+                            exact
+                            path="/story/:linkId"
+                            component={() => <Link user={user} />}
+                        />
                         <Route
                             exact
                             path="/profile/edit"
