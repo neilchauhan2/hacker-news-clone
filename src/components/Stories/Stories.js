@@ -6,11 +6,13 @@ const Stories = (props) => {
     const [links, setLinks] = useState([]);
     const isTrending = props.location.pathname.includes("trending");
 
+    console.log(links);
     const handleSnapshot = (snapshot) => {
-        const links = snapshot.docs.map((doc) => {
+        console.log(snapshot);
+        const newlinks = snapshot.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
         });
-        setLinks(links);
+        setLinks(newlinks);
     };
 
     const getLinks = () => {
@@ -22,7 +24,7 @@ const Stories = (props) => {
         }
         return firebase.db
             .collection("links")
-            .orderBy("created", "desc")
+            .orderBy("createdAt", "desc")
             .onSnapshot(handleSnapshot);
     };
 
@@ -35,9 +37,13 @@ const Stories = (props) => {
     return (
         <div className="container">
             {links &&
-                links.map((link) => {
-                    <Story key={link.id} />;
-                })}
+                links.map((link) => (
+                    <Story
+                        key={link.id}
+                        url={`/story/${link.id}`}
+                        link={link}
+                    />
+                ))}
         </div>
     );
 };
