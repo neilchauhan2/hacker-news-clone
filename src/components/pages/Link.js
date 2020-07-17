@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const Link = (props) => {
     const { user } = props;
     const [link, setLink] = useState(null);
     const { linkId } = useParams();
     const linkRef = firebase.db.collection("links").doc(linkId);
+    const history = useHistory();
 
     const postedByAuthUser = (link) => {
         return user && user.uid === link.postedBy.id;
@@ -19,7 +20,7 @@ const Link = (props) => {
             .catch((error) => {
                 console.error("Error deleting document.", error);
             });
-        props.history.push("/");
+        history.push("/");
     };
 
     const getLink = () => {

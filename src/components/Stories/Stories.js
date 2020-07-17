@@ -6,9 +6,7 @@ const Stories = (props) => {
     const [links, setLinks] = useState([]);
     const isTrending = props.location.pathname.includes("trending");
 
-    console.log(links);
     const handleSnapshot = (snapshot) => {
-        console.log(snapshot);
         const newlinks = snapshot.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
         });
