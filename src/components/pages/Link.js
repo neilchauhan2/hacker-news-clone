@@ -16,21 +16,24 @@ const Link = (props) => {
     const handleAddVote = () => {
         if (!user) {
             history.push("/login");
+        } else {
+            linkRef.get().then((doc) => {
+                const curVotes = doc.data().votes;
+                const vote = {
+                    votedBy: { id: user.uid, name: user.displayName }
+                };
+                const newVoteCount = doc.data().voteCount + 1;
+                linkRef.update({
+                    votes: [...curVotes, vote],
+                    voteCount: newVoteCount
+                });
+                setLink({
+                    ...link,
+                    votes: [...curVotes, vote],
+                    voteCount: newVoteCount
+                });
+            });
         }
-        linkRef.get().then((doc) => {
-            const curVotes = doc.data().votes;
-            const vote = { votedBy: { id: user.uid, name: user.displayName } };
-            const newVoteCount = doc.data().voteCount + 1;
-            linkRef.update({
-                votes: [...curVotes, vote],
-                voteCount: newVoteCount
-            });
-            setLink({
-                ...link,
-                votes: [...curVotes, vote],
-                voteCount: newVoteCount
-            });
-        });
     };
 
     const handleDelete = () => {
