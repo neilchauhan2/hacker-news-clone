@@ -13,6 +13,26 @@ const Link = (props) => {
         return user && user.uid === link.postedBy.id;
     };
 
+    const handleAddVote = () => {
+        if (!user) {
+            history.push("/login");
+        }
+        linkRef.get().then((doc) => {
+            const curVotes = doc.data().votes;
+            const vote = { votedBy: { id: user.uid, name: user.displayName } };
+            const newVoteCount = doc.data().voteCount + 1;
+            linkRef.update({
+                votes: [...curVotes, vote],
+                voteCount: newVoteCount
+            });
+            setLink({
+                ...link,
+                votes: [...curVotes, vote],
+                voteCount: newVoteCount
+            });
+        });
+    };
+
     const handleDelete = () => {
         linkRef
             .delete()
@@ -46,7 +66,9 @@ const Link = (props) => {
                         Delete Story
                     </button>
                 )}
-
+                <button className="button is-info" onClick={handleAddVote}>
+                    Upvote
+                </button>
                 <a href={link.url} className="button is-link">
                     View
                 </a>
