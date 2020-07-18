@@ -32,6 +32,7 @@ const Login = (props) => {
 
     return (
         <div className="container mt-6">
+            <h1 className="is-size-2 has-text-centered title">Log In</h1>
             <div className="field">
                 <label className="label">Email</label>
                 <div className="control">

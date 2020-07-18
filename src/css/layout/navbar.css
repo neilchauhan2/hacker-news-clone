@@ -6,6 +6,7 @@
 .navbar .navbar-brand h1 {
     font-weight: 600 !important;
     color: #fff;
+    letter-spacing: 1.2px;
 }
 
 .navbar .navbar-brand a :hover {

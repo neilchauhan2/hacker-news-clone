@@ -30,7 +30,8 @@ const SignUp = (props) => {
     );
 
     return (
-        <div className="container signup">
+        <div className="container mt-6">
+            <h1 className="is-size-2 has-text-centered title">Sign Up</h1>
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
@@ -57,7 +58,7 @@ const SignUp = (props) => {
                     />
                 </div>
             </div>
-            <div class="field">
+            <div class="field mb-5">
                 <label class="label">Password</label>
                 <div class="control">
                     <input
@@ -70,7 +71,7 @@ const SignUp = (props) => {
                     />
                 </div>
             </div>
-            <button className="button is-link" onClick={handleSubmit}>
+            <button className="btn-primary link-btn" onClick={handleSubmit}>
                 Sign Up
             </button>
         </div>

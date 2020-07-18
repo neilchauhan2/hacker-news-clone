@@ -27,7 +27,7 @@ function Navbar(props) {
                         <span>
                             <i className="fas fa-bolt"></i>
                         </span>
-                        app
+                        App
                     </h1>
                 </Link>
 
