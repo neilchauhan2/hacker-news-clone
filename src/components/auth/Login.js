@@ -31,7 +31,7 @@ const Login = (props) => {
     );
 
     return (
-        <div className="container login">
+        <div className="container mt-6">
             <div className="field">
                 <label className="label">Email</label>
                 <div className="control">
@@ -45,7 +45,7 @@ const Login = (props) => {
                     />
                 </div>
             </div>
-            <div className="field">
+            <div className="field mb-5">
                 <label className="label">Password</label>
                 <div className="control">
                     <input
@@ -58,10 +58,13 @@ const Login = (props) => {
                     />
                 </div>
             </div>
-            <button className="button is-link" onClick={handleSubmit}>
+            <button
+                className="btn-primary link-btn mr-5"
+                onClick={handleSubmit}
+            >
                 Login
             </button>
-            <Link className="button" to="/forgot">
+            <Link className="btn-white-link link-btn" to="/forgot">
                 Forgot Password
             </Link>
         </div>

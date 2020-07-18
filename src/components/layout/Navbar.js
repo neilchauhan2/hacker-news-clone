@@ -25,7 +25,7 @@ function Navbar(props) {
                     <h1 className="is-size-3 mb-1">
                         New
                         <span>
-                            <i class="fas fa-bolt"></i>
+                            <i className="fas fa-bolt"></i>
                         </span>
                         app
                     </h1>

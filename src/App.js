@@ -15,6 +15,7 @@ import Navbar from "./components/layout/Navbar";
 import Link from "./components/pages/Link";
 import "./App.css";
 import "../node_modules/bulma/css/bulma.css";
+import Tabs from "./components/layout/Tabs";
 
 const App = () => {
     const [user, setUser] = useAuth();
@@ -24,6 +25,7 @@ const App = () => {
             <UserContext.Provider value={{ user, setUser }}>
                 <div className="App">
                     <Navbar />
+                    <Tabs />
                     <div id="alertBox"></div>
                     <Switch>
                         <Route exact path="/" component={News} />{" "}

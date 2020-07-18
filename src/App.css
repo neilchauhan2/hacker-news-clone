@@ -1,17 +1,17 @@
 /* Global */
 .btn-primary {
     background: #fda942;
-    font-weight: 600;
-    font-size: 1.2rem;
-    width: 20rem;
+    font-weight: 700;
+    font-size: 1rem;
     border: none;
     color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
 }
 
 .btn-primary-link {
     background: #fda942;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.4rem 6rem;
     border: none;
     text-decoration: none;
@@ -26,8 +26,18 @@
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
-
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px
+}
+
+.btn-white-link {
+    background-color: #fff;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    padding: 0.4rem 6rem;
 }
 
 .btn-primary-inverted {

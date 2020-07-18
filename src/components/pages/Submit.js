@@ -39,7 +39,7 @@ const Submit = (props) => {
     );
 
     return (
-        <div className="container submit">
+        <div className="container mt-6">
             <h1 className="is-size-1 has-text-centered">Submit a new story</h1>
             <div className="field">
                 <label className="label">Link</label>
@@ -67,10 +67,7 @@ const Submit = (props) => {
                     />
                 </div>
             </div>
-            <button
-                className="button is-link is-fullwidth"
-                onClick={handleSubmit}
-            >
+            <button className="btn-primary link-btn" onClick={handleSubmit}>
                 Submit
             </button>
         </div>
