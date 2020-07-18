@@ -52,17 +52,20 @@ function Navbar(props) {
                             <div className="buttons">
                                 <Link
                                     to="/register"
-                                    className="btn-primary-inverted mr-3 mb-2"
+                                    className="btn-primary-inverted mr-3 mb-2 link-btn"
                                 >
                                     <strong>Sign up</strong>
                                 </Link>
-                                <Link className="btn-white mb-2" to="/login">
+                                <Link
+                                    className="btn-white mb-2 link-btn"
+                                    to="/login"
+                                >
                                     Log in
                                 </Link>
                             </div>
                         ) : (
                             <button
-                                className="btn-white mb-2"
+                                className="btn-white link-btn"
                                 onClick={logoutUser}
                             >
                                 Log Out

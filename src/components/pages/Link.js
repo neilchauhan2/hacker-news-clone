@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../../firebase";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useParams, useHistory } from "react-router-dom";
 
 const Link = (props) => {
@@ -59,20 +60,30 @@ const Link = (props) => {
 
     return (
         link && (
-            <div className="container mt-4">
+            <div className="container mt-6">
                 <h1 className="is-size-2 title">{link.description}</h1>
+                <div className="subtitle mt-2">
+                    {" "}
+                    <i className=" mr-1  ml-1 far fa-thumbs-up"></i>{" "}
+                    {link.voteCount} <i className=" mr-1 ml-2 fas fa-user"></i>{" "}
+                    {link.postedBy.name}{" "}
+                    <i className=" mr-1  ml-2 far fa-comment"></i>{" "}
+                    {link.comments.length}{" "}
+                    <i className=" mr-1 ml-2  fas fa-clock"></i>
+                    {" " + formatDistanceToNow(link.createdAt)} ago.
+                </div>
                 {postedByAuthUser(link) && (
-                    <button
-                        className="button is-danger mr-4"
-                        onClick={handleDelete}
-                    >
+                    <button className="btn-delete" onClick={handleDelete}>
                         Delete Story
                     </button>
                 )}
-                <button className="button is-info" onClick={handleAddVote}>
+                <button
+                    className="btn-primary-inverted btn-upvote"
+                    onClick={handleAddVote}
+                >
                     Upvote
                 </button>
-                <a href={link.url} className="button is-link">
+                <a href={link.url} className="btn-primary-link btn-view">
                     View
                 </a>
             </div>
