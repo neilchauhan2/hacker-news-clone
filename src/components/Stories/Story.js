@@ -9,8 +9,12 @@ const Story = (props) => {
             <h2 className="title">{link.description}</h2>
             <div className="subtitle mt-2">
                 {" "}
-                Upvotes: {link.voteCount} | Author: {link.postedBy.name} |
-                Comments: {link.comments.length} | Posted
+                <i className=" mr-1  ml-1 far fa-thumbs-up"></i>{" "}
+                {link.voteCount} <i className=" mr-1 ml-2 fas fa-user"></i>{" "}
+                {link.postedBy.name}{" "}
+                <i className=" mr-1  ml-2 far fa-comment"></i>{" "}
+                {link.comments.length}{" "}
+                <i className=" mr-1 ml-2  fas fa-clock"></i>
                 {" " + formatDistanceToNow(link.createdAt)} ago.
             </div>
 
