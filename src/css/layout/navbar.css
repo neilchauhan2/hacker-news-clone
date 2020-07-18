@@ -1,0 +1,18 @@
+.navbar {
+    background: #F39C12 !important;
+}
+
+.navbar .navbar-brand h1 {
+    font-weight: 600 !important;
+    color: #fff;
+}
+
+.navbar .navbar-brand a :hover {
+    text-decoration: none;
+    background-color: #F39C12;
+}
+
+.navbar .navbar-brand :hover {
+    text-decoration: none;
+    background-color: #F39C12;
+}

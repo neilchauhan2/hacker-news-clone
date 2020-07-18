@@ -13,7 +13,8 @@ const Story = (props) => {
                 Comments: {link.comments.length} | Posted
                 {" " + formatDistanceToNow(link.createdAt)} ago.
             </div>
-            <Link to={url} className="button is-link is-fullwidth">
+
+            <Link className="btn-primary-link" to={url}>
                 View Story
             </Link>
         </div>

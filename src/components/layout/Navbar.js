@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import alert from "../helpers/alert";
 import firebase from "../../firebase";
 import UserContext from "../../context/UserContext";
+import "../../css/layout/navbar.css";
 
 function Navbar(props) {
     const { user } = useContext(UserContext);
@@ -18,14 +19,16 @@ function Navbar(props) {
     };
 
     return (
-        <nav
-            className="navbar is-link"
-            role="navigation"
-            aria-label="main navigation"
-        >
+        <nav className="navbar " role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <Link className="navbar-item" to="/">
-                    <h1 className="is-size-3">Newzapp</h1>
+                    <h1 className="is-size-3 mb-1">
+                        New
+                        <span>
+                            <i class="fas fa-bolt"></i>
+                        </span>
+                        app
+                    </h1>
                 </Link>
 
                 <Link
@@ -49,17 +52,17 @@ function Navbar(props) {
                             <div className="buttons">
                                 <Link
                                     to="/register"
-                                    className="button is-primary"
+                                    className="btn-primary-inverted mr-3 mb-2"
                                 >
                                     <strong>Sign up</strong>
                                 </Link>
-                                <Link className="button is-light" to="/login">
+                                <Link className="btn-white mb-2" to="/login">
                                     Log in
                                 </Link>
                             </div>
                         ) : (
                             <button
-                                className="button is-light"
+                                className="btn-white mb-2"
                                 onClick={logoutUser}
                             >
                                 Log Out
