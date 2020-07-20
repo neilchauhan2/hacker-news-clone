@@ -3,8 +3,10 @@ import useForm from "../../hooks/useForm";
 import firebase from "../../firebase";
 import validateCreateLink from "../../validators/validateCreateLink";
 import alert from "../helpers/alert";
+import { useHistory } from "react-router-dom";
 
 const Submit = (props) => {
+    const history = useHistory();
     const { user } = props;
     const INITIAL_STATE = {
         url: "",
@@ -12,8 +14,10 @@ const Submit = (props) => {
     };
 
     const handleCreateLink = () => {
-        if (!user) props.history.push("/login");
-        else {
+        if (!user) {
+            history.push("/login");
+            alert("Please login to Submit a Story.", "danger");
+        } else {
             const { url, description } = values;
             const newLink = {
                 url,

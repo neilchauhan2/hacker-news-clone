@@ -26,7 +26,7 @@ const App = () => {
                 <div className="App">
                     <Navbar />
                     <Tabs />
-                    <div id="alertBox"></div>
+                    <div id="alertBox" className="container"></div>
                     <Switch>
                         <Route exact path="/" component={News} />{" "}
                         <Route exact path="/trending" component={Trending} />

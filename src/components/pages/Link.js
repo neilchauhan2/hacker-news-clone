@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import firebase from "../../firebase";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useParams, useHistory } from "react-router-dom";
+import alert from "../helpers/alert";
 
 const Link = (props) => {
     const { user } = props;
@@ -17,6 +18,7 @@ const Link = (props) => {
     const handleAddVote = () => {
         if (!user) {
             history.push("/login");
+            alert("Please login to Upvote.", "danger");
         } else {
             linkRef.get().then((doc) => {
                 const curVotes = doc.data().votes;

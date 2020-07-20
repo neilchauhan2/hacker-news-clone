@@ -6,7 +6,7 @@ const alert = (msg, status) => {
     container.appendChild(div);
     setTimeout(() => {
         container.removeChild(div);
-    }, 3000);
+    }, 6000);
 };
 
 export default alert;

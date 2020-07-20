@@ -76,3 +76,8 @@ body {
 .link-btn {
     padding: 0.4rem 2rem;
 }
+
+.notification {
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
