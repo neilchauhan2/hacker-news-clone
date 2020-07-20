@@ -3,6 +3,7 @@ import firebase from "../../firebase";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { useParams, useHistory } from "react-router-dom";
 import alert from "../helpers/alert";
+import Comment from "../Stories/Comment";
 
 const Link = (props) => {
     const { user } = props;
@@ -10,6 +11,11 @@ const Link = (props) => {
     const { linkId } = useParams();
     const linkRef = firebase.db.collection("links").doc(linkId);
     const history = useHistory();
+    const [commentText, setCommentText] = useState("");
+
+    const handleCommentChange = (e) => {
+        setCommentText(e.target.value);
+    };
 
     const postedByAuthUser = (link) => {
         return user && user.uid === link.postedBy.id;
@@ -34,6 +40,29 @@ const Link = (props) => {
                     ...link,
                     votes: [...curVotes, vote],
                     voteCount: newVoteCount
+                });
+            });
+        }
+    };
+
+    const handleAddComment = () => {
+        if (!user) {
+            history.push("/login");
+            alert("Please login to Comment.", "danger");
+        } else {
+            linkRef.get().then((doc) => {
+                const curComments = doc.data().comments;
+                const comment = {
+                    commentedBy: { id: user.uid, name: user.displayName },
+                    createdAt: Date.now(),
+                    body: commentText
+                };
+                linkRef.update({
+                    comments: [...curComments, comment]
+                });
+                setLink({
+                    ...link,
+                    comments: [...curComments, comment]
                 });
             });
         }
@@ -88,6 +117,42 @@ const Link = (props) => {
                 <a href={link.url} className="btn-primary-link btn-view">
                     View
                 </a>
+                <hr className="mt-6" />
+                <div className="container mt-5">
+                    <h3 className="is-size-4 title mb-3">Comments</h3>
+                    <article className="media">
+                        <div className="media-content">
+                            <div className="field">
+                                <p className="control">
+                                    <textarea
+                                        className="textarea"
+                                        value={commentText}
+                                        onChange={handleCommentChange}
+                                        placeholder="Add a comment..."
+                                    ></textarea>
+                                </p>
+                            </div>
+                            <nav className="level">
+                                <div className="level-left">
+                                    <div className="level-item">
+                                        <button
+                                            onClick={handleAddComment}
+                                            className="btn-primary link-btn"
+                                        >
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </article>
+                    <div className="comments-section mt-6">
+                        {link.comments &&
+                            link.comments.map((comment) => (
+                                <Comment comment={comment} />
+                            ))}
+                    </div>
+                </div>
             </div>
         )
     );
