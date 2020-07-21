@@ -1,12 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import alert from "../helpers/alert";
 import firebase from "../../firebase";
 import UserContext from "../../context/UserContext";
 import "../../css/layout/navbar.css";
 
-function Navbar(props) {
+const Navbar = (props) => {
     const { user } = useContext(UserContext);
+
+    useEffect(() => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(
+            document.querySelectorAll(".navbar-burger"),
+            0
+        );
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+            // Add a click event on each of them
+            $navbarBurgers.forEach((el) => {
+                el.addEventListener("click", () => {
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle("is-active");
+                    $target.classList.toggle("is-active");
+                });
+            });
+        }
+        //   eslint-disable-next-line
+    }, []);
+
     const logoutUser = async () => {
         try {
             await firebase.logout();
@@ -76,6 +102,6 @@ function Navbar(props) {
             </div>
         </nav>
     );
-}
+};
 
 export default Navbar;
